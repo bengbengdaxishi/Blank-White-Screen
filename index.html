@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Blank White Screen</title>
+    <meta name="description" content="That's right, this is the blank white screen you were looking for.">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .content-box {
+            width: 80%;
+            max-width: 800px;
+            min-height: 400px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(255, 223, 186, 0.8);
+            margin-bottom: 20px;
+            padding: 20px;
+        }
+
+        .fullscreen-btn {
+            padding: 12px 24px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .fullscreen-btn:hover {
+            background-color: #45a049;
+        }
+        
+        :fullscreen .content-box {
+            width: 100%;
+            height: 100vh;
+            max-width: none;
+            margin: 0;
+            padding: 0;
+            border-radius: 0;
+            box-shadow: none;
+        }
+
+        :fullscreen body {
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="content-box">
+    </div>
+    <button class="fullscreen-btn" onclick="toggleFullScreen()">Fullscreen</button>
+
+    <script>
+        function toggleFullScreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            }
+        }
+    </script>
+</body>
+</html>
